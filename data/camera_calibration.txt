@@ -1,0 +1,7 @@
+## Camera Calibration Results
+* The number of applied images = 10
+* Final reprojection error = 0.299581
+* Intrinsic matrix K = 
+  [436.8567492821948, 0, 474.9383454554226][0, 435.2682184050429, 287.7594861788868][0, 0, 1]
+* Distortion coefficient (k1, k2, p1, p2, k3, ...) = 
+  [-0.3141237144365506, 0.1510281625919636, 0.0002461279607529655, 0.0008388593065552344, -0.04366636861882413]
