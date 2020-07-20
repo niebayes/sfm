@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
-project(sfm)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+project(SFM)
 
 # Configure compile mode: Debug, Release, etc.
 if (NOT CMAKE_BUILD_TYPE)
@@ -8,7 +8,7 @@ endif()
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Enable C++11 standard
-# 检查编译器是否支持C++11特性
+# Check if the compiler supports C++11
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 if(COMPILER_SUPPORTS_CXX11)
@@ -66,6 +66,7 @@ include_directories(BEFORE
 #@ref build instruction: https://github.com/google/googletest/blob/master/googletest/README.md
 #@ref usage: https://github.com/google/googletest/blob/master/googletest/docs/primer.md
 # Start of gtest 
+# This pre-process will take place every time you modify this file and the sub-files belong to it.
 # Download and unpack googletest at configure time
 configure_file(external/googletest/CMakeLists.txt.in googletest/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .

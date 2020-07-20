@@ -63,7 +63,7 @@ struct ReprojectionError {
 
     // Step 3: Calibration
     // Camera matrix K = [[f, 0, px], [0, f, py], [0, 0, 1]]
-    // TODO Model the distortion
+    // TODO Model the skew factor and geometric distortion
     //@ref http://ceres-solver.org/nnls_tutorial.html#bundle-adjustment
     T x_p = focal_length_ * X[0] + principal_point_.x;
     T y_p = focal_length_ * X[1] + principal_point_.y;
