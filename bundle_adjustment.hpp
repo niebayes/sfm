@@ -5,21 +5,12 @@
 #include "ceres/rotation.h"
 #include "opencv2/core/core.hpp"
 
-// The problem being solved here is known as a Bundle Adjustment
-// problem in computer vision. Given a set of 3d points X_1, ..., X_n,
-// a set of cameras P_1, ..., P_m. If the point X_i is visible in
-// image j, then there is a 2D observation u_ij that is the expected
-// projection of X_i using P_j. The aim of this optimization is to
-// find values of X_i and P_j such that the reprojection error
-//    E(X,P) =  sum_ij  |u_ij - P_j X_i|^2
-// is minimized.
 
-// Problem anatomy:
-// Objective: minimize the reprojection error
-// Unknown: configuration of 3D object points and 6-dof camera poses.
-// Given: a set of 2D image points with their correspondence is known exactly,
-// camera calibration matrix K, a optional initial value for 3D object points
-// and 6-dof camera poses.
+
+class BAProblem {
+ public:
+ private:
+};
 
 // Reprojection error for bundle adjustment.
 // This error models the distance between the estimated image points and the
@@ -28,6 +19,12 @@
 // projection. The error (residual) hence is the sum of the Euclidean distance
 // between the estimated and observed image points.
 struct ReprojectionError {
+  //@note Discussion: class or struct?
+  //@ref https://stackoverflow.com/a/54596/11240780
+  //! Conclusion: use struct when there're POD types only. There's one
+  //! exception, in spirit of in accordance with STL, use struct when
+  //! defining functors.
+  //@ref https://stackoverflow.com/a/146454/11240780
   ReprojectionError(const cv::Point2d& observed, const double focal_length,
                     const cv::Point2d& principal_point)
       : observed_(observed),

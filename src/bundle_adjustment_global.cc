@@ -1,4 +1,7 @@
+#include <cstddef>
+#include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -21,7 +24,7 @@
 //   - All points are visible from all viewpoints (camera pose)
 
 // Problem solving
-// 1) Load the 2D points from the data
+// 1) Load 2D points from data
 // 2) Initialize 3D points and cameras (fixed intrinsics + varying extrinsics)
 // 3) Bundle adjustment: optimize positions of 3D points and configurations of
 // cameras, using ceres-sovler.
@@ -30,4 +33,7 @@
 
 DEFINE_string(input, "data/xyz/image_formation%d.xyz", "2D image points file");
 
-int main(int argc, char** argv) { std::cerr << "Good!\n"; }
+int main(int argc, char** argv) {
+  GFLAGS_NAMESPACE::ParseCommandLineFlags(&argc, &argv, true);
+  google::InitGoogleLogging(argv[0]);
+}

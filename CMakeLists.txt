@@ -52,6 +52,7 @@ endif()
 include_directories(BEFORE
     ${PROJECT_SOURCE_DIR}/include
     ${PROJECT_SOURCE_DIR}/utils
+    ${PROJECT_SOURCE_DIR}/src
     ${OpenCV_INCLUDE_DIRS}
     ${CERES_INCLUDE_DIRS}
     # ${EIGEN3_INCLUDE_DIRS}
